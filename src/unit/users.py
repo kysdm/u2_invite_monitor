@@ -143,16 +143,16 @@ class Users:
             tsize_30day = []
 
             for s in _s:
+                # 自统计以来
+                tnum.append(s['Currently_Seeding_Quantity'])
+                tsize.append(s['Currently_Seeding_Size'])
+
                 if s['Get_Time'] >= otherDay(7):  # 7天内
                     tnum_7day.append(s['Currently_Seeding_Quantity'])
                     tsize_7day.append(s['Currently_Seeding_Size'])
-                elif s['Get_Time'] >= otherDay(30):  # 30天内
+                if s['Get_Time'] >= otherDay(30):  # 30天内
                     tnum_30day.append(s['Currently_Seeding_Quantity'])
                     tsize_30day.append(s['Currently_Seeding_Size'])
-                else:
-                    # 自统计以来
-                    tnum.append(s['Currently_Seeding_Quantity'])
-                    tsize.append(s['Currently_Seeding_Size'])
 
             tb.add_rows(
                 [
